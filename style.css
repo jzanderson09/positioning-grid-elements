@@ -1,48 +1,83 @@
 body,
 html {
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 62.5%;
   height: 100%;
   margin: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font-size: 1.6rem;
+}
+
 #container {
-  text-align: center;
+  display: grid;
+  gap: 1.5rem;
+  grid-template: 
+    [firstRow] 1fr [secondRow] 1fr 
+    [thirdRow] 5fr [fourthRow] 1fr / 
+    [firstColumn] 1fr [secondColumn] 3fr;
+  grid-template-areas: 
+    'header header'
+    'sidebar nav'
+    'sidebar article'
+    'footer footer';
   height: 100%;
-  padding: 16px;
-  box-sizing: border-box;
+  padding: 1.6rem;
+  text-align: center;
 }
 
 #container div {
-  padding: 15px;
-  font-size: 32px;
-  font-family: Helvetica;
-  font-weight: bold;
+  border: .3rem outset silver;
+  box-shadow: .5rem .5rem .5rem .5rem black;
+  border-radius: 1.5rem;
   color: white;
-  border-radius: 15px;
+  font-size: 3.2rem;
+  font-weight: bold;
+  padding: 1.5rem;
+  text-shadow: .5rem .5rem .5rem black;
+}
+
+#container div:hover {
+  opacity: 0.9;
+}
+
+#container div:active {
+  transform: scale(0.98);
 }
 
 #header {
   background-color: #006157;
+  grid-area: header;
 }
 
 #sidebar {
   background-color: #005B94;
+  grid-area: sidebar;
 }
 
 #nav {
   background-color: #642cde;
+  grid-area: nav;
 }
 
 #article {
   background-color: #7E1DC3;
+  grid-area: article;
 }
 
 #footer {
   background-color: #393f4d;
+  grid-area: footer;
 }
 
 #article p {
-  font-size: 18px;
-  font-family: sans-serif;
   color: white;
+  font-family: sans-serif;
+  font-size: 1.8rem;
   text-align: left;
 }
